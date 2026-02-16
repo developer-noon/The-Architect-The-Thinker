@@ -1,0 +1,99 @@
+/** @format */
+
+:root {
+  --paper: #f9f7f2;
+  --ink: #2c2926;
+  --accent: #c47b59;
+  --muted: #8c857d;
+}
+
+body {
+  background-color: var(--paper);
+  color: var(--ink);
+  font-family: "Inter", sans-serif;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+.serif {
+  font-family: "Crimson Pro", serif;
+}
+
+.journal-container {
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 4rem 1.25rem;
+}
+
+.section-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--muted), transparent);
+  margin: 4rem 0;
+  opacity: 0.3;
+}
+
+.role-link {
+  transition: all 0.3s ease;
+  position: relative;
+  padding: 0.5rem 0;
+}
+.role-link.active {
+  color: var(--accent);
+}
+.role-link.active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 2px;
+}
+
+.logic-bar-fill {
+  background: var(--accent);
+  height: 100%;
+  border-radius: 4px;
+  transition: width 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fade-in {
+  animation: fadeIn 0.8s ease forwards;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile Nav */
+@media (max-width: 768px) {
+  .role-nav-scroll {
+    display: flex;
+    overflow-x: auto;
+    gap: 1.5rem;
+    padding-bottom: 1rem;
+    scrollbar-width: none;
+  }
+  .role-nav-scroll::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* API Settings Panel */
+#settings-panel {
+  transform: translateY(100%);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+#settings-panel.open {
+  transform: translateY(0);
+}

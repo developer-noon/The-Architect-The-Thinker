@@ -1,0 +1,267 @@
+<!-- @format -->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Architect & The Thinker | Digital Journal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Subtle Settings Toggle (Top Right) -->
+    <button
+      onclick="toggleSettings()"
+      class="fixed top-4 right-4 text-[10px] uppercase tracking-widest text-stone-400 hover:text-stone-900 z-50"
+    >
+      Config
+    </button>
+
+    <!-- Settings Panel -->
+    <div
+      id="settings-panel"
+      class="fixed bottom-0 left-0 w-full bg-stone-900 text-stone-100 p-8 z-50 shadow-2xl"
+    >
+      <div class="max-w-md mx-auto">
+        <h3 class="serif italic text-2xl mb-2">Deployment Settings</h3>
+        <p class="text-stone-400 text-xs mb-6">
+          Enter your Gemini API Key to enable AI features on your deployed site.
+        </p>
+        <input
+          type="password"
+          id="api-key-input"
+          placeholder="Enter Gemini API Key..."
+          class="w-full bg-stone-800 border-none rounded-sm p-3 mb-4 text-sm focus:ring-1 focus:ring-amber-600 outline-none"
+        />
+        <div class="flex gap-4">
+          <button
+            onclick="saveSettings()"
+            class="bg-amber-700 text-white px-6 py-2 text-xs uppercase font-bold tracking-widest"
+          >
+            Save Key
+          </button>
+          <button
+            onclick="toggleSettings()"
+            class="text-stone-500 text-xs uppercase font-bold tracking-widest"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="journal-container">
+      <!-- Editorial Header -->
+      <header class="text-center mb-16 md:mb-24">
+        <span
+          class="uppercase tracking-[0.3em] text-[10px] text-stone-400 font-bold mb-4 block"
+          >The Conceptual Series — Vol. I</span
+        >
+        <h1 class="text-5xl md:text-7xl font-bold mb-8 italic">
+          The Architect & The Thinker
+        </h1>
+        <p
+          class="text-stone-500 max-w-lg mx-auto text-lg italic serif leading-relaxed"
+        >
+          A digital essay exploring technical roles where the strategy is the
+          code, and the logic is the foundation.
+        </p>
+      </header>
+
+      <section class="prose prose-stone mx-auto mb-20">
+        <p
+          class="text-xl leading-relaxed first-letter:text-6xl first-letter:font-bold first-letter:mr-3 first-letter:float-left first-letter:serif text-stone-700"
+        >
+          In an era obsessed with "building," we often overlook the value of
+          "thinking." For those who find beauty in structure and theory over the
+          fatigue of constant syntax, there exists a hidden geography of roles.
+        </p>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Role Exploration -->
+      <section id="explorer">
+        <div class="flex flex-col md:flex-row gap-12">
+          <nav
+            class="role-nav-scroll md:w-1/3 flex md:flex-col text-lg serif italic md:sticky md:top-12 h-fit"
+          >
+            <button
+              onclick="updateRole('architect')"
+              class="role-link text-left hover:text-stone-400 active"
+              id="btn-architect"
+            >
+              Software Architect
+            </button>
+            <button
+              onclick="updateRole('analyst')"
+              class="role-link text-left hover:text-stone-400"
+              id="btn-analyst"
+            >
+              Systems Analyst
+            </button>
+            <button
+              onclick="updateRole('scientist')"
+              class="role-link text-left hover:text-stone-400"
+              id="btn-scientist"
+            >
+              Data Scientist
+            </button>
+            <button
+              onclick="updateRole('ux')"
+              class="role-link text-left hover:text-stone-400"
+              id="btn-ux"
+            >
+              UX Strategist
+            </button>
+            <button
+              onclick="updateRole('researcher')"
+              class="role-link text-left hover:text-stone-400"
+              id="btn-researcher"
+            >
+              AI Researcher
+            </button>
+          </nav>
+
+          <div class="md:w-2/3 min-h-[400px]">
+            <div id="content-block" class="fade-in">
+              <h2 id="display-title" class="text-4xl font-bold mb-6 italic">
+                Software Architect
+              </h2>
+              <p
+                id="display-desc"
+                class="text-stone-600 mb-10 text-lg leading-relaxed serif"
+              >
+                Philosophers of the codebase. They determine the laws of physics
+                for a digital system—deciding how parts communicate and ensuring
+                structural integrity as systems scale.
+              </p>
+
+              <div class="space-y-8 bg-stone-100/50 p-8 rounded-sm mb-10">
+                <div>
+                  <div
+                    class="flex justify-between text-[10px] uppercase font-bold tracking-widest mb-3 text-stone-400"
+                  >
+                    <span>Logic & Theory</span>
+                    <span id="val-theory">95%</span>
+                  </div>
+                  <div class="h-1 bg-stone-200 w-full rounded-full">
+                    <div
+                      id="bar-theory"
+                      class="logic-bar-fill"
+                      style="width: 95%"
+                    ></div>
+                  </div>
+                </div>
+                <div>
+                  <div
+                    class="flex justify-between text-[10px] uppercase font-bold tracking-widest mb-3 text-stone-400"
+                  >
+                    <span>Active Coding</span>
+                    <span id="val-code">15%</span>
+                  </div>
+                  <div class="h-1 bg-stone-200 w-full rounded-full">
+                    <div
+                      id="bar-code"
+                      class="logic-bar-fill"
+                      style="width: 15%"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- AI Interaction -->
+              <div class="border-t border-stone-200 pt-8">
+                <button
+                  id="ai-deep-dive-btn"
+                  onclick="generateDeepDive()"
+                  class="text-[10px] uppercase font-bold text-amber-800 tracking-[0.2em] hover:opacity-70 flex items-center gap-2"
+                >
+                  ✨ Generate AI Thought Experiment
+                </button>
+                <div
+                  id="ai-response-container"
+                  class="hidden mt-6 p-6 bg-white border border-stone-200 shadow-sm text-sm italic serif text-stone-600 leading-loose fade-in relative"
+                >
+                  <div id="ai-text">
+                    Pondering the structural implications...
+                  </div>
+                  <div class="mt-4 flex gap-4">
+                    <button
+                      id="tts-btn"
+                      onclick="speakAiText()"
+                      class="text-[9px] uppercase font-bold text-stone-400 hover:text-stone-900 hidden"
+                    >
+                      🔊 Play Voice
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Career Mentor -->
+      <section class="max-w-xl mx-auto py-12">
+        <div class="text-center mb-10">
+          <h2 class="text-3xl font-bold mb-3 italic">Consult the Oracle</h2>
+          <p class="text-stone-400 text-xs uppercase tracking-widest">
+            A personalized mentor for the curious mind
+          </p>
+        </div>
+
+        <div class="bg-white p-8 border border-stone-200 rounded-sm">
+          <textarea
+            id="mentor-input"
+            rows="3"
+            class="w-full bg-transparent border-none focus:ring-0 text-stone-700 placeholder-stone-300 serif italic text-xl resize-none"
+            placeholder="Describe your natural curiosity..."
+          ></textarea>
+          <div
+            class="mt-6 flex justify-between items-center border-t border-stone-50 pt-6"
+          >
+            <span
+              id="mentor-status"
+              class="text-[9px] text-stone-300 uppercase font-bold tracking-widest"
+              >Waiting for input</span
+            >
+            <button
+              onclick="consultMentor()"
+              class="bg-stone-900 text-stone-100 px-8 py-3 text-[10px] uppercase font-bold tracking-widest hover:bg-amber-800 transition-all shadow-lg"
+            >
+              Seek Advice
+            </button>
+          </div>
+        </div>
+
+        <div
+          id="mentor-response"
+          class="hidden mt-10 fade-in border-l-2 border-stone-900 pl-8 py-2"
+        >
+          <p
+            id="mentor-text"
+            class="text-stone-700 italic serif text-lg leading-relaxed"
+          ></p>
+        </div>
+      </section>
+
+      <footer class="mt-32 pt-12 border-t border-stone-200 text-center pb-20">
+        <p class="text-stone-400 text-[9px] uppercase tracking-[0.4em] mb-4">
+          The Architect & The Thinker
+        </p>
+        <p class="text-stone-300 text-[10px] italic serif">
+          A human-centric digital artifact. 2024.
+        </p>
+      </footer>
+    </div>
+    <script src="file.js"></script>
+  </body>
+</html>
