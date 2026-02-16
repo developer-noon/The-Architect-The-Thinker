@@ -1,7 +1,10 @@
 /** @format */
 
-// Use environment key if available, else check localStorage
-let activeKey = localStorage.getItem("gemini_api_key") || "";
+// Vercel Environment Variable Injection (will be replaced during build)
+// or fallback to localStorage
+let activeKey = "__GEMINI_API_KEY__" !== "__GEMINI_API_KEY__" 
+    ? "__GEMINI_API_KEY__" 
+    : (localStorage.getItem("gemini_api_key") || "");
 
 const roles = {
   architect: {
@@ -193,6 +196,3 @@ function pcmToWav(base64Pcm, sampleRate) {
   view.setUint32(40, buffer.byteLength, true);
   return new Blob([wavHeader, buffer], { type: "audio/wav" });
 }
-
-
-
