@@ -1,7 +1,7 @@
 /** @format */
 
 // Use environment key if available, else check localStorage
-let activeKey = "";
+let activeKey = localStorage.getItem("gemini_api_key") || "";
 
 const roles = {
   architect: {
@@ -193,5 +193,6 @@ function pcmToWav(base64Pcm, sampleRate) {
   view.setUint32(40, buffer.byteLength, true);
   return new Blob([wavHeader, buffer], { type: "audio/wav" });
 }
+
 
 
