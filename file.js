@@ -1,7 +1,7 @@
 /** @format */
 
 // Use environment key if available, else check localStorage
-// let activeKey = "AIzaSyBc509IdOhFEgHPjn5AOsIPZMA0WYm5kgc";
+let activeKey = "";
 
 const roles = {
   architect: {
@@ -193,4 +193,5 @@ function pcmToWav(base64Pcm, sampleRate) {
   view.setUint32(40, buffer.byteLength, true);
   return new Blob([wavHeader, buffer], { type: "audio/wav" });
 }
+
 
